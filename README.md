@@ -14,7 +14,7 @@ This is my personal portfolio website showcasing my web development projects and
 - CSS
 
 ## Live Site
-https://yourusername.github.io
+maisiemcgill.github.io
 
 ## What I Focus On
 - Writing clean, maintainable code
