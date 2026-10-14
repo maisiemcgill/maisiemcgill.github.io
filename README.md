@@ -1,22 +1,36 @@
-# Portfolio Website
+Maisie McGill — IT Support & Application Support Portfolio
 
-## Overview
-This is my personal portfolio website showcasing my web development projects and skills. It includes applications built using JavaScript, HTML, and CSS, with a focus on responsive design and user-friendly interfaces.
+Overview
 
-## Projects
-- Expense Tracker App
-- Weather App (API Integration)
-- Portfolio Website
+Welcome to my portfolio. I’m an IT Support Engineer with experience providing technical support in an enterprise environment, alongside a Level 3 qualification in Software Development.
 
-## Tech Stack
-- JavaScript
-- HTML
-- CSS
+I’m interested in progressing into Application Support, combining technical troubleshooting, problem-solving and software development knowledge.
 
-## Live Site
-maisiemcgill.github.io
+Technical Skills
 
-## What I Focus On
-- Writing clean, maintainable code
-- Building responsive layouts
-- Creating user-friendly interfaces
+IT Support: Incident management, troubleshooting, user support and escalation
+IT Tools: ServiceNow, Active Directory, ARM, Microsoft 365, Intune, Ivanti and NinjaOne
+Development: JavaScript, HTML, CSS, APIs and JSON
+Professional Skills: Communication, analytical thinking and problem-solving
+Projects
+
+Weather Application
+
+A JavaScript project using an external API to display weather information.
+
+Live Demo
+GitHub Repository
+Expense Tracker
+
+A JavaScript project for tracking income and expenses.
+
+Live Demo
+GitHub Repository
+Live Portfolio
+
+Visit my website: https://maisiemcgill.github.io/
+
+Career Goal
+
+I’m looking to develop my career in IT, with a particular interest in Application Support Analyst opportunities.
+
