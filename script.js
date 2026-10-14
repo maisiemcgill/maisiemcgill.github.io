@@ -1,37 +1,71 @@
+// Mobile navigation menu
+const mobileMenu = document.querySelector('.mobile-menu');
+const navLinks = document.querySelector('.nav-links');
 
+if (mobileMenu && navLinks) {
+    const toggleMenu = () => {
+        const isOpen = navLinks.classList.toggle('active');
 
-// Mobile menu
-const mobileMenu = document.querySelector('.mobile-menu')
-const navLinks = document.querySelector('.nav-links')
+        mobileMenu.classList.toggle('active', isOpen);
+        mobileMenu.setAttribute('aria-expanded', String(isOpen));
+    };
 
-mobileMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('active')
-    mobileMenu.classList.toggle('active')
-})
+    mobileMenu.addEventListener('click', toggleMenu);
 
-// Scroll animation
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
+    mobileMenu.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleMenu();
+        }
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileMenu.setAttribute('aria-expanded', 'false');
+        });
+    });
 }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1'
-            entry.target.style.transform = 'translateY(0)'
-        }
-    })
-}, observerOptions)
+// Reveal sections as they enter the viewport.
+// If IntersectionObserver is unavailable, show all sections normally.
+const sections = document.querySelectorAll('section');
 
-document.querySelectorAll('section').forEach((section) => {
-    section.style.opacity = '0'
-    section.style.transform = "translateY(30px)"
-    section.style.transition = "all 0.6s ease"
+if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                currentObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
 
-    observer.observe(section)
-})
+    sections.forEach((section) => {
+        section.classList.add('will-reveal');
+        observer.observe(section);
+    });
+} else {
+    sections.forEach((section) => {
+        section.classList.add('is-visible');
+    });
+}
 
-window.addEventListener('scroll', () => {
-    document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
-});
+// Change the header appearance when scrolling
+const header = document.querySelector('header');
+
+if (header) {
+    const updateHeader = () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    };
+
+    updateHeader();
+
+    window.addEventListener('scroll', updateHeader, {
+        passive: true
+    });
+}
