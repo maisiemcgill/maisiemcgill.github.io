@@ -390,7 +390,6 @@ section {
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1.7fr;
-    gap: 60px;
     align-items: center;
     background: #FFFFFF;
     padding: 3rem;
